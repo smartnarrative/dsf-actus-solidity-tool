@@ -1,12 +1,14 @@
-const initializeWeb3 = require('./ethereum/web3');
-const initializeEngines = require('./ethereum/ap');
-const computeSchedule = require('./ethereum/ap');
+const Web3 = require('./ethereum/web3');
+const ap = require('./ethereum/ap');
+import { initializeWeb3 } from './ethereum/web3';
+import { initializeEngines, computeSchedule } from './ethereum/ap';
+import BulletLoanQuarterlyTerms from './PAM-1y-bullet-loan-quarterly-coupon.json';
 
-const init = () => {
-  initializeWeb3();
-  initializeEngines();
+initializeWeb3();
+initializeEngines();
+
+export const init = async () => {
+  const terms = JSON.stringify(BulletLoanQuarterlyTerms);
+  const schedule = await computeSchedule(JSON.parse(terms));
+  console.dir(schedule);
 }
-
-module.exports = {
-  init: init
-};

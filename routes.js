@@ -5,7 +5,9 @@ const dsfActusSolidityTool = require('./DSFActusSolidityTool');
 const routes = () => {
     router.route('/tranche')
     .get((req, res) => {
-      dsfActusSolidityTool.init();
+      dsfActusSolidityTool
+      .init()
+      .then(() => { console.log('done')});
       res.status(200).send({message: "OK"});
     });
 
