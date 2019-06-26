@@ -1,4 +1,3 @@
-const Web3 = require('./ethereum/web3');
 const ap = require('./ethereum/ap');
 import { initializeWeb3 } from './ethereum/web3';
 import { initializeEngines, computeSchedule } from './ethereum/ap';

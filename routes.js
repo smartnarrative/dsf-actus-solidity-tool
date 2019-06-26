@@ -3,7 +3,7 @@ const router = express.Router();
 const dsfActusSolidityTool = require('./DSFActusSolidityTool');
 
 const routes = () => {
-    router.route('/tranche')
+    router.route('/')
     .get((req, res) => {
       dsfActusSolidityTool
       .init()
