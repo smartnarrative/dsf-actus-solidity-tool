@@ -5,13 +5,14 @@ const wrap = require('./wrap');
 
 const routes = () => {
     router.route('/tranche')
-    .get(wrap(async (req, res) => {
+    // .get(wrap(async (req, res) => {
+    .get((req, res) => {
       dsfActusSolidityTool
       .init()
       .then((schedule) => { 
         res.status(200).send(JSON.stringify(schedule));
       });
-    }));
+    });
 
     return router;
 };
